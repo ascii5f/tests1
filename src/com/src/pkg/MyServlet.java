@@ -36,6 +36,7 @@ public class MyServlet extends HttpServlet {
 		}
 		request.getSession().setAttribute("hello", "hello2");
 		out.println();
+		out.print("hello jens, you are a great person!");
 	}
 
 	/**
