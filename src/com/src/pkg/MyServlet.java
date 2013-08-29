@@ -27,16 +27,10 @@ public class MyServlet extends HttpServlet {
 		String[] arr;
 		PrintWriter out = response.getWriter();
 		arr = request.getParameterValues("email");
-		if(arr == null || arr[0].isEmpty()) {
-			out.print("You have to fill in the email.");
-		} else if(arr[0].contains("@")) {
-			out.print("Email is valid: " + arr[0]);			
-		} else {
-			out.print("Email is invalid: " + arr[0]);
-		}
-		request.getSession().setAttribute("hello", "hello2");
-		out.println();
-		out.print("hello jens, you are a great person!");
+		out.print(EmailValidation.validate(arr[0]));
+//		request.getSession().setAttribute("hello", "hello2");
+//		out.println();
+//		out.print("hello jens, you are a great person!");
 	}
 
 	/**
