@@ -1,6 +1,9 @@
 package com.src.pkg;
 
 public class EmailValidation {
+	
+	//Just testing for commit on GIT!
+	
 	public static String validate(String email) {
 		if(email == null || email.isEmpty()) {
 			return "You have to fill in the email.";
