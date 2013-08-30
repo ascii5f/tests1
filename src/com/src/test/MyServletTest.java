@@ -31,5 +31,10 @@ public class MyServletTest {
 	public void testValid() {
 		assertEquals(true, EmailValidation.validate("hello@hello.dk"));
 	}
+	
+	@Test
+	public void testEmailHistory() {
+//		assertEquals(true, EmailHistory.addNew("email@address.dk", true));
+	}
 
 }

@@ -27,14 +27,20 @@ public class MyServlet extends HttpServlet {
 		String[] arr;
 		PrintWriter out = response.getWriter();
 		arr = request.getParameterValues("email");
-		if(arr[0] == null || arr[0].isEmpty()) {
+		if(arr == null) {
 			out.print("You have to fill in the email.");
 		} else {
-			if(EmailValidation.validate(arr[0])) {
-				out.print("Email is valid: " + arr[0]);
+			if(arr[0].isEmpty()) {
+				out.print("You have to fill in the email.");
 			} else {
-				out.print("Email is invalid: " + arr[0]);
-			}
+				if(EmailValidation.validate(arr[0])) {
+					out.print("Email is valid: " + arr[0]);
+//					EmailHistory.addNew(arr[0], true);
+				} else {
+					out.print("Email is invalid: " + arr[0]);
+//					EmailHistory.addNew(arr[0], false);
+				}
+			}			
 		}
 	}
 
