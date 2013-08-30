@@ -10,4 +10,8 @@ public class EmailValidation {
 			return "Email is invalid: " + email;
 		}
 	}
+	
+	public static String something(){
+		return "hello, who are you?";
+	}
 }
