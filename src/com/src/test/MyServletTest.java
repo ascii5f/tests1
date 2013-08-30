@@ -20,7 +20,7 @@ public class MyServletTest {
 
 	@Test
 	public void testInvalid() {
-		assertEquals("Email is invalid: hello", EmailValidation.validate("hello"));
+		assertEquals(false, EmailValidation.validate("hello"));
 	}
 	@Test
 	public void testInvalidWhichShouldFail() {
@@ -29,12 +29,7 @@ public class MyServletTest {
 	
 	@Test
 	public void testValid() {
-		assertEquals("Email is valid: hello@hello.dk", EmailValidation.validate("hello@hello.dk"));
-	}
-	
-	@Test
-	public void testEmpty() {
-		assertEquals("You have to fill in the email.", EmailValidation.validate(""));
+		assertEquals(true, EmailValidation.validate("hello@hello.dk"));
 	}
 
 }
