@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.src.pkg.EmailValidation;
 
-public class MyServletTest {
+public class EmailValidationTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -20,7 +20,9 @@ public class MyServletTest {
 
 	@Test
 	public void testInvalid() {
-		assertEquals(false, EmailValidation.validate("hello"));
+		boolean expected = false;
+		boolean actual = EmailValidation.validate("hello");
+		assertEquals(expected, actual);
 	}
 	@Test
 	public void testInvalidWhichShouldFail() {
@@ -29,12 +31,11 @@ public class MyServletTest {
 	
 	@Test
 	public void testValid() {
-		assertEquals(true, EmailValidation.validate("hello@hello.dk"));
+		boolean expected = true;
+		boolean actual = EmailValidation.validate("hello@hello.dk");
+		assertEquals(expected, actual);
 	}
 	
-	@Test
-	public void testEmailHistory() {
-//		assertEquals(true, EmailHistory.addNew("email@address.dk", true));
-	}
+
 
 }

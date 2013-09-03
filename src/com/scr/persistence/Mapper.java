@@ -5,8 +5,29 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
-public class Mapper {
+import com.src.pkg.EmailObject;
+import com.src.pkg.IMapper;
+
+public class Mapper implements IMapper{
+	
+	
+	public Connection getConnection(){
+        Connection con = null;
+
+        String url = "jdbc:mysql://localhost:3306/";
+        String user = "jens1";
+        String password = "3r33rt09jfe8JF";
+        
+		try {
+			con = DriverManager.getConnection(url, user, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con;
+	}
 	
 	public void tryConnecting(){
 
@@ -52,6 +73,24 @@ public class Mapper {
                 //lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
+	}
+
+	@Override
+	public boolean addNew(String email, boolean state) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ArrayList<EmailObject> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<EmailObject> getByFilter(boolean filter) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
